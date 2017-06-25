@@ -1,0 +1,35 @@
+{
+  "name": "raid-scanner",
+  "version": "0.0.1",
+  "description": "Pokémon Go Raid Scanner",
+  "main": "scan.js",
+  "author": "@nunc",
+  "license": "MIT",
+  "engines": {
+    "node": ">=7.1.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "bluebird-retry": "^0.10.1",
+    "bytebuffer": "^5.0.1",
+    "gpsoauth": "^1.0.0",
+    "long": "^3.2.0",
+    "moment": "^2.18.1",
+    "moment-timezone": "^0.5.13",
+    "mz": "^2.6.0",
+    "neat-csv": "^2.1.0",
+    "pogobuf-vnext": "github:pogosandbox/pogobuf#protobuf6",
+    "pretty-ms": "^2.1.0",
+    "request": "^2.81.0",
+    "s2-geometry": "^1.2.9",
+    "semver": "^5.3.0",
+    "sqlite3": "^3.1.8",
+    "telebot": "^1.2.2",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.1.2",
+    "eslint-plugin-import": "^2.2.0"
+  }
+}
