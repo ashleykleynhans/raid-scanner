@@ -4,7 +4,7 @@ Scans a list of gyms provided in gyms.csv and sends notifications to a public Te
 
 ### Requirements
 
-NodeJS 7 or higher is required to run this application.
+NodeJS 7.6.0 or higher is required to run this application.
 
 #### Usage
 

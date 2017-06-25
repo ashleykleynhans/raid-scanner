@@ -227,4 +227,8 @@ async function Main() {
 }
 
 Main()
+  .then(() => {
+    logger.info('Done scanning');
+    process.exit();
+  })
   .catch(e => console.error(e));

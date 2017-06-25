@@ -6,7 +6,7 @@
   "author": "@nunc",
   "license": "MIT",
   "engines": {
-    "node": ">=7.1.0"
+    "node": ">=7.6.0"
   },
   "dependencies": {
     "bluebird": "^3.5.0",
