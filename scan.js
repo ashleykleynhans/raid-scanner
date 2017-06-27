@@ -82,6 +82,7 @@ async function scanGym(gymRow) {
       const raidEnd = moment(raidInfo.raid_end_ms).tz(Config.timezone).format('YYYY-MM-DD HH:mm');
 
       let raidMsg = '<b>';
+      let pokemonName = '';
       let raidMove1;
       let raidMove2;
       let moveset = '';
@@ -97,6 +98,7 @@ async function scanGym(gymRow) {
       if (raidInfo.raid_pokemon) {
         notify = true;
 
+        pokemonName = pogobuf.Utils.getEnumKeyByValue(POGOProtos.Enums.PokemonId, raidInfo.raid_pokemon.pokemon_id);
         raidMove1 = pogobuf.Utils.getEnumKeyByValue(POGOProtos.Enums.PokemonMove, raidInfo.raid_pokemon.move_1);
         raidMove2 = pogobuf.Utils.getEnumKeyByValue(POGOProtos.Enums.PokemonMove, raidInfo.raid_pokemon.move_2);
 
@@ -104,9 +106,9 @@ async function scanGym(gymRow) {
         raidMove1 = raidMove1.replace('Fast', '');
         raidMove2 = raidMove2.replace(/\s+/g, '');
         moveset = `${raidMove1}/${raidMove2}`;
-        weakness = RaidBoss.getWeakness(raidInfo.raid_pokemon);
+        weakness = RaidBoss.getWeakness(pokemonName);
 
-        raidMsg += pogobuf.Utils.getEnumKeyByValue(POGOProtos.Enums.PokemonId, raidInfo.raid_pokemon.pokemon_id) + ' - ';
+        raidMsg += `${pokemonName}  - `;
       }
 
       raidMsg += `Level ${raidInfo.raid_level}</b>\n`;
