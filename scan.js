@@ -95,7 +95,7 @@ async function scanGym(gymRow) {
       message = `<b>${gym.name}</b>\n`;
       message += `${team} (${timeOccupied})\n`;
 
-      if (raidInfo.raid_pokemon) {
+      if (raidInfo.raid_pokemon && raidInfo.raid_level > 1) {
         notify = true;
 
         pokemonName = pogobuf.Utils.getEnumKeyByValue(POGOProtos.Enums.PokemonId, raidInfo.raid_pokemon.pokemon_id);
@@ -113,7 +113,7 @@ async function scanGym(gymRow) {
 
       raidMsg += `Level ${raidInfo.raid_level}</b>\n`;
 
-      if (raidInfo.raid_pokemon && raidInfo.raid_level > 1) {
+      if (raidInfo.raid_pokemon) {
         raidMsg += `<b>CP: ${raidInfo.raid_pokemon.cp}</b>\n`;
         raidMsg += `<b>MS: ${moveset}</b>\n`;
         raidMsg += `Weakness: ${weakness}\n`;
