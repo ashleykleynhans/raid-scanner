@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Pokémon Go Raid Scanner",
   "main": "scan.js",
-  "author": "@nunc",
+  "author": "Ashley Kleynhans",
   "license": "MIT",
   "engines": {
     "node": ">=7.6.0"
@@ -18,7 +18,7 @@
     "moment-timezone": "^0.5.13",
     "mz": "^2.6.0",
     "neat-csv": "^2.1.0",
-    "node-pogo-protos": "^2.10.3",
+    "node-pogo-protos-vnext": "^2.11.0",
     "pogobuf-vnext": "^2.3.0",
     "pretty-ms": "^2.1.0",
     "request": "^2.81.0",

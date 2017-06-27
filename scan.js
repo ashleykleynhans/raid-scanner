@@ -1,7 +1,7 @@
 'use strict';
 
 const pogobuf = require('pogobuf-vnext'),
-  POGOProtos = require('node-pogo-protos'),
+  POGOProtos = require('node-pogo-protos-vnext'),
   PoGo = require('./lib/pogo'),
   Gym = require('./lib/gym'),
   RaidBoss = require('./lib/raidboss'),
