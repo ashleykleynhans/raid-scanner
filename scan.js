@@ -233,9 +233,8 @@ async function Main() {
   }
 }
 
-Main()
-  .then(() => {
-    logger.info('Done scanning');
-    process.exit();
-  })
-  .catch(e => console.error(e));
+
+setInterval(() => {
+  Main()
+    .catch(e => console.error(e));
+}, Config.intervalMinutes * 60 * 1000);

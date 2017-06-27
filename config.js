@@ -15,5 +15,6 @@ module.exports = {
 
   timezone: 'America/Los_Angeles',
   csvDelimiter: ',',
-  logLevel: 'debug'
+  logLevel: 'debug',
+  intervalMinutes: 15
 };
