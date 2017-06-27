@@ -111,7 +111,7 @@ async function scanGym(gymRow) {
 
       raidMsg += `Level ${raidInfo.raid_level}</b>\n`;
 
-      if (raidInfo.raid_pokemon) {
+      if (raidInfo.raid_pokemon && raidInfo.raid_level > 1) {
         raidMsg += `<b>CP: ${raidInfo.raid_pokemon.cp}</b>\n`;
         raidMsg += `<b>MS: ${moveset}</b>\n`;
         raidMsg += `Weakness: ${weakness}\n`;
@@ -227,7 +227,7 @@ async function Main() {
   for (const gymRow of gymData) {
     logger.info(`Scanning gym at ${gymRow.latitude}, ${gymRow.longitude}`);
     await scanGym(gymRow);
-    await sleep(2000);
+    await sleep(4000);
   }
 }
 
