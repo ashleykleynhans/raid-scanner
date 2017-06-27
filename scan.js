@@ -4,6 +4,7 @@ const pogobuf = require('pogobuf-vnext'),
   POGOProtos = require('node-pogo-protos'),
   PoGo = require('./lib/pogo'),
   Gym = require('./lib/gym'),
+  RaidBoss = require('./lib/raidboss'),
   moment = require('moment-timezone'),
   prettyMs = require('pretty-ms'),
   fs = require('mz/fs'),
@@ -84,6 +85,7 @@ async function scanGym(gymRow) {
       let raidMove1;
       let raidMove2;
       let moveset = '';
+      let weakness = '';
 
       if (raidInfo.raid_level > 3) {
         notify = true;
@@ -99,8 +101,10 @@ async function scanGym(gymRow) {
         raidMove2 = pogobuf.Utils.getEnumKeyByValue(POGOProtos.Enums.PokemonMove, raidInfo.raid_pokemon.move_2);
 
         raidMove1 = raidMove1.replace(/\s+/g, '');
+        raidMove1 = raidMove1.replace('Fast', '');
         raidMove2 = raidMove2.replace(/\s+/g, '');
         moveset = `${raidMove1}/${raidMove2}`;
+        weakness = RaidBoss.getWeakness(raidInfo.raid_pokemon);
 
         raidMsg += pogobuf.Utils.getEnumKeyByValue(POGOProtos.Enums.PokemonId, raidInfo.raid_pokemon.pokemon_id) + ' - ';
       }
@@ -110,6 +114,7 @@ async function scanGym(gymRow) {
       if (raidInfo.raid_pokemon) {
         raidMsg += `<b>CP: ${raidInfo.raid_pokemon.cp}</b>\n`;
         raidMsg += `<b>MS: ${moveset}</b>\n`;
+        raidMsg += `Weakness: ${weakness}\n`;
       }
 
       raidMsg += `Start: ${raidStart}\n`;
