@@ -234,7 +234,11 @@ async function Main() {
 }
 
 
+logger.info(`Sleeping for ${Config.intervalMinutes} before scanning`);
+
 setInterval(() => {
   Main()
     .catch(e => console.error(e));
+
+  logger.info(`Sleeping for ${Config.intervalMinutes} before next scan`);
 }, Config.intervalMinutes * 60 * 1000);
