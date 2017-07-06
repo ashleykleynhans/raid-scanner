@@ -192,7 +192,9 @@ async function scanGym(gymRow) {
         if (notify) {
           logger.info(`Sending Telegram notification to ${Config.telegram.channel}`);
 
-          bot.sendMessage(Config.telegram.channel, message, {parse})
+          const channel = raidInfo.raid_level > 3 ? Config.telegram.channelL4 : Config.telegram.channel;
+
+          bot.sendMessage(channel, message, {parse})
             .catch(error => {
               logger.error(error);
             });
