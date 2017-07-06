@@ -12,7 +12,8 @@ const pogobuf = require('pogobuf-vnext'),
   csvImport = require('neat-csv'),
   sqlite3 = require('sqlite3').verbose(),
   Config = require('./config'),
-  TeleBot = require('telebot');
+  TeleBot = require('telebot'),
+  schedule = require('node-schedule');
 
 const teams = [
   'Uncontested',
@@ -258,11 +259,8 @@ async function Main() {
 }
 
 
-logger.info(`Sleeping for ${Config.intervalMinutes} minutes before scanning`);
-
-setInterval(() => {
+// Scan every 15 minutes between 7am and 10pm
+const j = schedule.scheduleJob('*/15 7-22 * * *', () => {
   Main()
     .catch(e => console.error(e));
-
-  logger.info(`Sleeping for ${Config.intervalMinutes} minutes before next scan`);
-}, Config.intervalMinutes * 60 * 1000);
+});
