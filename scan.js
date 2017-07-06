@@ -122,18 +122,18 @@ async function scanGym(gymRow) {
         raidMsg += `<b>MS: ${moveset}</b>\n`;
         raidMsg += `Weakness: ${weakness}\n`;
 
-        if (counters.hasOwnProperty('supreme')) {
+        if (counters.hasOwnProperty('supreme') && counters.supreme.length) {
           raidMsg += 'Supreme Counters : ' + counters.supreme.join(',') + '\n';
         }
 
-        if (counters.hasOwnProperty('good')) {
+        if (counters.hasOwnProperty('good') && counters.supreme.length) {
           raidMsg += 'Good Counters : ' + counters.good.join(',') + '\n';
         }
 
-        if (counters.hasOwnProperty('tank')) {
+        if (counters.hasOwnProperty('tank') && counters.supreme.length) {
           raidMsg += 'Tank Counters : ' + counters.tank.join(',') + '\n';
 
-          if (counters.hasOwnProperty('glass')) {
+          if (counters.hasOwnProperty('glass') && counters.supreme.length) {
             raidMsg += 'Glass Counters : ' + counters.glass.join(',') + '\n';
           }
         }
