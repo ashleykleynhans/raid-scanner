@@ -19,7 +19,7 @@
     "mz": "^2.6.0",
     "neat-csv": "^2.1.0",
     "node-pogo-protos-vnext": "^2.11.0",
-    "pogobuf-vnext": "^2.3.0",
+    "pogobuf-vnext": "^2.3.2",
     "pretty-ms": "^2.1.0",
     "request": "^2.81.0",
     "request-promise": "^4.2.1",

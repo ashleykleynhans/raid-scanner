@@ -122,19 +122,19 @@ async function scanGym(gymRow) {
         raidMsg += `<b>MS: ${moveset}</b>\n`;
         raidMsg += `Weakness: ${weakness}\n`;
 
-        if (counters.hasOwnProperty('supreme') && counters.supreme.length) {
-          raidMsg += 'Supreme Counters : ' + counters.supreme.join(',') + '\n';
+        if (counters.hasOwnProperty('supreme') && counters.supreme.length > 0) {
+          raidMsg += '<b>Supreme Counters:</b>\n  ' + counters.supreme.join('\n  ') + '\n';
         }
 
-        if (counters.hasOwnProperty('good') && counters.supreme.length) {
-          raidMsg += 'Good Counters : ' + counters.good.join(',') + '\n';
+        if (counters.hasOwnProperty('good') && counters.supreme.length > 0) {
+          raidMsg += '<b>Good Counters:</b>\n  ' + counters.good.join('\n  ') + '\n';
         }
 
-        if (counters.hasOwnProperty('tank') && counters.supreme.length) {
-          raidMsg += 'Tank Counters : ' + counters.tank.join(',') + '\n';
+        if (counters.hasOwnProperty('tank') && counters.supreme.length > 0) {
+          raidMsg += '<b>Tank Counters:</b>\n  ' + counters.tank.join('\n  ') + '\n';
 
-          if (counters.hasOwnProperty('glass') && counters.supreme.length) {
-            raidMsg += 'Glass Counters : ' + counters.glass.join(',') + '\n';
+          if (counters.hasOwnProperty('glass') && counters.supreme.length > 0) {
+            raidMsg += '<b>Glass Counters:</b>\n  ' + counters.glass.join('\n  ') + '\n';
           }
         }
       }
@@ -254,11 +254,11 @@ async function Main() {
 }
 
 
-logger.info(`Sleeping for ${Config.intervalMinutes} before scanning`);
+logger.info(`Sleeping for ${Config.intervalMinutes} minutes before scanning`);
 
 setInterval(() => {
   Main()
     .catch(e => console.error(e));
 
-  logger.info(`Sleeping for ${Config.intervalMinutes} before next scan`);
+  logger.info(`Sleeping for ${Config.intervalMinutes} minutes before next scan`);
 }, Config.intervalMinutes * 60 * 1000);
