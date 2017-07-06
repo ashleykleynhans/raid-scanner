@@ -87,6 +87,7 @@ async function scanGym(gymRow) {
       let raidMove2;
       let moveset = '';
       let weakness = '';
+      let counters = {};
 
       if (raidInfo.raid_level > 3) {
         notify = true;
@@ -106,7 +107,10 @@ async function scanGym(gymRow) {
         raidMove1 = raidMove1.replace('Fast', '');
         raidMove2 = raidMove2.replace(/\s+/g, '');
         moveset = `${raidMove1}/${raidMove2}`;
-        weakness = RaidBoss.getWeakness(pokemonName);
+
+        const raidBoss = RaidBoss.getWeaknessAndCounters(pokemonName);
+        weakness = raidBoss.weakness.join(',');
+        counters = raidBoss.counters;
 
         raidMsg += `${pokemonName}  - `;
       }
@@ -117,6 +121,22 @@ async function scanGym(gymRow) {
         raidMsg += `<b>CP: ${raidInfo.raid_pokemon.cp}</b>\n`;
         raidMsg += `<b>MS: ${moveset}</b>\n`;
         raidMsg += `Weakness: ${weakness}\n`;
+
+        if (counters.hasOwnProperty('supreme')) {
+          raidMsg += 'Supreme Counters : ' + counters.supreme.join(',') + '\n';
+        }
+
+        if (counters.hasOwnProperty('good')) {
+          raidMsg += 'Good Counters : ' + counters.good.join(',') + '\n';
+        }
+
+        if (counters.hasOwnProperty('tank')) {
+          raidMsg += 'Tank Counters : ' + counters.tank.join(',') + '\n';
+
+          if (counters.hasOwnProperty('glass')) {
+            raidMsg += 'Glass Counters : ' + counters.glass.join(',') + '\n';
+          }
+        }
       }
 
       raidMsg += `Start: ${raidStart}\n`;
