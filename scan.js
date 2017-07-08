@@ -79,8 +79,8 @@ async function scanGym(gymRow) {
       const raidInfo = fort.raid_info;
       const team = 'Team: ' + teams[fort.owned_by_team];
       const timeOccupied = prettyMs(fort.gym_display.occupied_millis);
-      const raidStart = moment(raidInfo.raid_battle_ms).tz(Config.timezone).format('YYYY-MM-DD HH:mm');
-      const raidEnd = moment(raidInfo.raid_end_ms).tz(Config.timezone).format('YYYY-MM-DD HH:mm');
+      const raidStart = moment(raidInfo.raid_battle_ms).tz(Config.timezone).format('HH:mm');
+      const raidEnd = moment(raidInfo.raid_end_ms).tz(Config.timezone).format('HH:mm');
 
       let raidMsg = '<b>';
       let pokemonName = '';
@@ -119,7 +119,7 @@ async function scanGym(gymRow) {
       raidMsg += `Level ${raidInfo.raid_level}</b>\n`;
 
       if (raidInfo.raid_pokemon) {
-        raidMsg += `<b>CP: ${raidInfo.raid_pokemon.cp}</b>\n`;
+        raidMsg += `CP: ${raidInfo.raid_pokemon.cp}\n`;
         raidMsg += `<b>MS: ${moveset}</b>\n`;
         raidMsg += `Weakness: ${weakness}\n`;
 
@@ -142,8 +142,8 @@ async function scanGym(gymRow) {
         }
       }
 
-      raidMsg += `Start: ${raidStart}\n`;
-      raidMsg += `End: ${raidEnd}\n`;
+      raidMsg += `<b>Start: ${raidStart}</b>\n`;
+      raidMsg += `<b>End: ${raidEnd}</b>\n`;
       raidMsg += `https://maps.google.com/?q=${lat},${lng}`;
 
       message += raidMsg;
