@@ -5,7 +5,7 @@ module.exports = {
     password: 'INSERT_PASSWORD',
     hashingKey: 'INSERT_HASH_KEY',
     proxy: '', // Optional - leave empty for no proxy
-    appVersion: 6702
+    appVersion: 6900
   },
 
   telegram: {
