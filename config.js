@@ -11,7 +11,8 @@ module.exports = {
   telegram: {
     token: 'INSERT_TELEGRAM_TOKEN_HERE',
     channel: '@TELEGRAM_CHANNEL',
-    channelL4: '@TELEGRAM_CHANNEL'
+    channelL4: '@TELEGRAM_CHANNEL',
+    channelLegendary: '@TELEGRAM_CHANNEL'
   },
 
   timezone: 'America/Los_Angeles',

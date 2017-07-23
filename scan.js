@@ -193,7 +193,15 @@ async function scanGym(gymRow) {
         }
 
         if (notify) {
-          const channel = raidInfo.raid_level > 3 ? Config.telegram.channelL4 : Config.telegram.channel;
+          let channel = Config.telegram.channel;
+
+          if (raidInfo.raid_level === 5) {
+            channel = Config.telegram.channelLegendary;
+          }
+
+          if (raidInfo.raid_level === 4) {
+            channel = Config.telegram.channelL4;
+          }
 
           logger.info(`Sending Telegram notification to ${channel}`);
 
