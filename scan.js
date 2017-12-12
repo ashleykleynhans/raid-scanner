@@ -224,7 +224,7 @@ async function login() {
   const version = await PoGo.getRpcVersion();
 
   try {
-    if (PoGo.isApiDeprecated(version, Config.api.appVersion)) {
+    if (PoGo.isApiDeprecated(version, Config.api.currentForcedVersion)) {
       logger.error(`Unable to scan for raids. Niantic has forced API version ${version}.`);
       process.exit();
     } else {
@@ -234,6 +234,7 @@ async function login() {
         password: Config.api.password,
         hashingKey: Config.api.hashingKey,
         version: Config.api.appVersion,
+        hashingVersion: Config.api.hashingVersion,
         useHashingServer: true
       };
 
