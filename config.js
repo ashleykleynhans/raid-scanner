@@ -5,8 +5,8 @@ module.exports = {
     password: 'INSERT_PASSWORD',
     hashingKey: 'INSERT_HASH_KEY',
     proxy: '', // Optional - leave empty for no proxy
-    currentForcedVersion: 8900,
-    appVersion: 8900,
+    currentForcedVersion: 9100,
+    appVersion: 9100,
     hashingVersion: 'api/v159_1/hash',
   },
 
